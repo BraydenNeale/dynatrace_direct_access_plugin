@@ -1,0 +1,18 @@
+{
+  "entries": [
+    {
+      "process_type": 29,
+      "group_name": "oneagent_sdk.demo_app",
+      "processes": [
+        {
+          "process_name": "python3.5",
+          "properties": {
+            "CmdLine": "-m oneagent_sdk.demo_app --ui",
+            "WorkDir": "/home/demo",
+            "ListeningPorts": "8769"
+          }
+        }
+      ]
+    }
+  ]
+}

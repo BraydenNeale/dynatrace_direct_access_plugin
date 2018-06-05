@@ -1,0 +1,38 @@
+{
+  "name": "custom.python.direct_access_users",
+  "version": "1.002",
+  "type": "python",
+  "entity": "PROCESS_GROUP_INSTANCE",
+  "processTypeNames": ["PYTHON"],
+  "source": {
+    "package": "direct_access_user_plugin",
+    "className": "DirectAccessUserPlugin",
+    "activation": "Singleton"
+  },
+  "metrics": [
+    {
+      "timeseries": {
+        "key": "free_space",
+        "unit": "Count",
+  "displayname": "Free disk space"
+      }
+    },
+    {
+      "timeseries": {
+        "key": "disk_size",
+        "unit": "Count",
+  "displayname":"Disk Size"
+      }
+    },
+    {
+      "timeseries": {
+        "key": "drive_type",
+        "unit": "Count",
+  "displayname":"Type of drive"
+      }
+    }
+  ],
+   "configUI": {
+        "displayName": "Direct Access User Sessions"
+    }
+}
