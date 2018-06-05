@@ -1,38 +1,82 @@
 {
-  "name": "custom.python.direct_access_users",
-  "version": "1.002",
-  "type": "python",
-  "entity": "PROCESS_GROUP_INSTANCE",
-  "processTypeNames": ["PYTHON"],
-  "source": {
-    "package": "direct_access_user_plugin",
-    "className": "DirectAccessUserPlugin",
-    "activation": "Singleton"
-  },
-  "metrics": [
-    {
-      "timeseries": {
-        "key": "free_space",
-        "unit": "Count",
-  "displayname": "Free disk space"
+   "name":"custom.python.direct_access_users",
+   "version":"1.005",
+   "type":"python",
+   "entity":"PROCESS_GROUP_INSTANCE",
+   "processTypeNames":[
+      "PYTHON"
+   ],
+   "source":{
+      "package":"direct_access_user_plugin",
+      "className":"DirectAccessUserPlugin",
+      "activation":"Singleton"
+   },
+   "metrics":[
+      {
+         "timeseries":{
+            "key":"total_connections",
+            "unit":"Count",
+            "displayname":"The total number of connections."
+         }
+      },
+      {
+         "timeseries":{
+            "key":"total_DA_connections",
+            "unit":"Count",
+            "displayname":"The total number of DirectAccess connections."
+         }
+      },
+      {
+         "timeseries":{
+            "key":"total_vpn_connections",
+            "unit":"Count",
+            "displayname":"The total VPN number of connections."
+         }
+      },
+      {
+         "timeseries":{
+            "key":"total_unique_users",
+            "unit":"Count",
+            "displayname":"The total number of unique users."
+         }
+      },
+      {
+         "timeseries":{
+            "key":"max_concurrent_connections",
+            "unit":"Count",
+            "displayname":"The maximum number of concurrent connections."
+         }
+      },
+      {
+         "timeseries":{
+            "key":"total_cumulative_connections",
+            "unit":"Count",
+            "displayname":"The total number of cumulative connections (the total number of connections since the remote access server was started)"
+         }
+      },
+      {
+         "timeseries":{
+            "key":"total_bytes_in",
+            "unit":"Count",
+            "displayname":"The total number of bytes in."
+         }
+      },
+      {
+         "timeseries":{
+            "key":"total_bytes_out",
+            "unit":"Count",
+            "displayname":"The total number of bytes out."
+         }
+      },
+      {
+         "timeseries":{
+            "key":"total_bytes_in_out",
+            "unit":"Count",
+            "displayname":"The total number of bytes in and out."
+         }
       }
-    },
-    {
-      "timeseries": {
-        "key": "disk_size",
-        "unit": "Count",
-  "displayname":"Disk Size"
-      }
-    },
-    {
-      "timeseries": {
-        "key": "drive_type",
-        "unit": "Count",
-  "displayname":"Type of drive"
-      }
-    }
-  ],
-   "configUI": {
-        "displayName": "Direct Access User Sessions"
-    }
+   ],
+   "configUI":{
+      "displayName":"Direct Access User Sessions"
+   }
 }
