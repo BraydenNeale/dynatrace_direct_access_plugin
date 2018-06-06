@@ -11,12 +11,13 @@ class DirectAccessUserPlugin(BasePlugin):
         pgi = self.find_single_process_group(pgi_name('DirectAccess'))
         pgi_id = pgi.group_instance_id
 
-        tempdir = tempfile.gettempdir()
-        json_file_path = "{0}\\object.json".format(tempdir)
-        powershell_command = "Get-RemoteAccessConnectionStatisticsSummary | ConvertTo-Json | Out-File {0} -Encoding UTF8".format(json_file_path)
-        p1 = subprocess.Popen(["powershell", powershell_command]);
-        p1.wait()
+        #tempdir = tempfile.gettempdir()
+        #json_file_path = "{0}\\object.json".format(tempdir)
+        #powershell_command = "Get-RemoteAccessConnectionStatisticsSummary | ConvertTo-Json | Out-File {0} -Encoding UTF8".format(json_file_path)
+        #p1 = subprocess.Popen(["powershell", powershell_command]);
+        #p1.wait()
 
+        json_file_path = "D:\\Software\\Scripts\\DirectAccessStats.JSON"
         stats = {}
         with open(json_file_path, encoding='utf-8') as json_file:
             clean_file = json_file.read()
