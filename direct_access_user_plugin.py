@@ -8,9 +8,9 @@ from ruxit.api.snapshot import pgi_name
 
 class DirectAccessUserPlugin(BasePlugin):
     def query(self, **kwargs):
-        pgi = self.find_single_process_group(pgi_name('oneagent_sdk.demo_app'))
+        pgi = self.find_single_process_group(pgi_name('DirectAccess'))
         pgi_id = pgi.group_instance_id
-        '''
+
         tempdir = tempfile.gettempdir()
         json_file_path = "{0}\\object.json".format(tempdir)
         powershell_command = "Get-RemoteAccessConnectionStatisticsSummary | ConvertTo-Json | Out-File {0} -Encoding UTF8".format(json_file_path)
@@ -22,18 +22,7 @@ class DirectAccessUserPlugin(BasePlugin):
             clean_file = json_file.read()
             clean_file = clean_file.replace('\ufeff', '')
             stats = json.loads(clean_file)
-        '''
-        stats = {}
-        stats['TotalConnections'] = random.randint(1,101)
-        stats['TotalDAConnections'] = random.randint(1,101)
-        stats['TotalVpnConnections'] = random.randint(1,101)
-        stats['TotalUniqueUsers'] = random.randint(1,101)
-        stats['MaxConcurrentConnections'] = random.randint(1,101)
-        stats['TotalCumulativeConnections'] = random.randint(1,101)
-        stats['TotalBytesIn'] = random.randint(1,101)
-        stats['TotalBytesOut'] = random.randint(1,101)
-        stats['TotalBytesInOut'] = random.randint(1,101)
-
+        
         self.results_builder.absolute(key='total_connections', value=stats['TotalConnections'], entity_id=pgi_id)
         self.results_builder.relative(key='total_DA_connections', value=stats['TotalDAConnections'], entity_id=pgi_id)
         self.results_builder.absolute(key='total_vpn_connections', value=stats['TotalVpnConnections'], entity_id=pgi_id)

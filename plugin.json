@@ -1,10 +1,10 @@
 {
    "name":"custom.python.direct_access_users",
-   "version":"1.005",
+   "version":"1.006",
    "type":"python",
    "entity":"PROCESS_GROUP_INSTANCE",
    "processTypeNames":[
-      "PYTHON"
+      "WINDOWS_SYSTEM"
    ],
    "source":{
       "package":"direct_access_user_plugin",
