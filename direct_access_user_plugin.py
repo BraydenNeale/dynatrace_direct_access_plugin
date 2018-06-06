@@ -24,7 +24,7 @@ class DirectAccessUserPlugin(BasePlugin):
             stats = json.loads(clean_file)
         
         self.results_builder.absolute(key='total_connections', value=stats['TotalConnections'], entity_id=pgi_id)
-        self.results_builder.relative(key='total_DA_connections', value=stats['TotalDAConnections'], entity_id=pgi_id)
+        self.results_builder.absolute(key='total_DA_connections', value=stats['TotalDAConnections'], entity_id=pgi_id)
         self.results_builder.absolute(key='total_vpn_connections', value=stats['TotalVpnConnections'], entity_id=pgi_id)
         self.results_builder.absolute(key='total_unique_users', value=stats['TotalUniqueUsers'], entity_id=pgi_id)
         self.results_builder.absolute(key='max_concurrent_connections', value=stats['MaxConcurrentConnections'], entity_id=pgi_id)

@@ -1,6 +1,6 @@
 {
    "name":"custom.python.direct_access_users",
-   "version":"1.006",
+   "version":"1.007",
    "type":"python",
    "entity":"PROCESS_GROUP_INSTANCE",
    "processTypeNames":[
