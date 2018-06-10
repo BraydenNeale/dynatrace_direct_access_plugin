@@ -1,6 +1,6 @@
 {
    "name":"custom.python.direct_access_users",
-   "version":"1.008",
+   "version":"1.009",
    "type":"python",
    "entity":"PROCESS_GROUP_INSTANCE",
    "processTypeNames":[
@@ -51,31 +51,133 @@
          "timeseries":{
             "key":"total_cumulative_connections",
             "unit":"Count",
-            "displayname":"The total number of cumulative connections (the total number of connections since the remote access server was started)"
+            "displayname":"The total number of cumulative connections"
          }
       },
       {
          "timeseries":{
             "key":"total_bytes_in",
-            "unit":"Count",
+            "unit":"Byte",
             "displayname":"The total number of bytes in."
          }
       },
       {
          "timeseries":{
             "key":"total_bytes_out",
-            "unit":"Count",
+            "unit":"Byte",
             "displayname":"The total number of bytes out."
          }
       },
       {
          "timeseries":{
             "key":"total_bytes_in_out",
-            "unit":"Count",
+            "unit":"Byte",
             "displayname":"The total number of bytes in and out."
          }
       }
    ],
+   "ui":{
+      "keymetrics":[
+         {
+            "key":"total_unique_users",
+            "aggregation":"count",
+            "displayname":"Total Unique Users"
+         },
+         {
+            "key":"total_DA_connections",
+            "aggregation":"count",
+            "displayname":"Total Direct Access Connections"
+         }
+      ],
+      "keycharts":[
+         {
+            "group":"Overview",
+            "title":"Summary Stats",
+            "description":"Users, Connections, Total Bytes",
+            "series":[
+               {
+                  "key":"total_unique_users",
+                  "aggregation":"count",
+                  "displayname":"Total Unique Users",
+                  "color":"rgb(255,0,0)",
+                  "seriestype":"bar"
+               },
+               {
+                  "key":"total_DA_connections",
+                  "aggregation":"count",
+                  "displayname":"Total Direct Access Connections",
+                  "color":"rgb(255,255,0)",
+                  "seriestype":"line"
+               },
+               {
+                  "key":"total_bytes_in_out",
+                  "aggregation":"count",
+                  "displayname":"Total Byes in/out",
+                  "color":"rgb(0,255,0)",
+                  "seriestype":"area"
+               }
+            ]
+         }
+      ],
+      "charts":[
+         {
+            "group":"Connections",
+            "title":"Direct access connections",
+            "description":"Connection statistics",
+            "series":[
+               {
+                  "key":"total_connections",
+                  "aggregation":"count",
+                  "displayname":"Total Byes in/out",
+                  "color":"rgb(0,255,255)",
+                  "seriestype":"bar"
+               },
+               {
+                  "key":"total_DA_connections",
+                  "aggregation":"count",
+                  "displayname":"Total Direct Access Connections",
+                  "color":"rgb(255,255,0)",
+                  "seriestype":"line"
+               },
+               {
+                  "key":"total_vpn_connections",
+                  "aggregation":"count",
+                  "displayname":"Total Byes in/out",
+                  "color":"rgb(0,255,100)",
+                  "seriestype":"area"
+               }
+            ]
+         },
+         {
+            "group":"Network",
+            "title":"Direct access network statistics",
+            "description":"Bytes in and out",
+            "series":[
+               {
+                  "key":"total_bytes_in",
+                  "aggregation":"count",
+                  "displayname":"Total Byes in/out",
+                  "color":"rgb(100,50,200)",
+                  "seriestype":"bar"
+               },
+               {
+                  "key":"total_bytes_out",
+                  "aggregation":"count",
+                  "displayname":"Total Byes in/out",
+                  "color":"rgb(70,255,200)",
+                  "seriestype":"line"
+               },
+               {
+                  "key":"total_bytes_in_out",
+                  "aggregation":"count",
+                  "displayname":"Total Byes in/out",
+                  "color":"rgb(100,75,0)",
+                  "seriestype":"area"
+               }
+            ]
+         }
+      ]
+   },
    "configUI":{
       "displayName":"Direct Access User Sessions"
    }
