@@ -5,15 +5,17 @@ import tempfile
 import random
 from ruxit.api.base_plugin import BasePlugin
 from ruxit.api.snapshot import pgi_name
+from ruxit.api.exceptions import ConfigException
 
 class DirectAccessUserPlugin(BasePlugin):
     def query(self, **kwargs):
-        pgi = self.find_single_process_group(pgi_name('DirectAccess'))
+        #pgi = self.find_single_process_group(pgi_name('DirectAccess'))
+        pgi = self.find_single_process_group(pgi_name('oneagent_sdk.demo_app'))
         pgi_id = pgi.group_instance_id
 
         json_file_path = "D:\\Software\\Scripts\\DirectAccessStats.JSON"
         stats = {}
-        
+        '''
         try:
             with open(json_file_path, encoding='utf-8') as json_file:
                 clean_file = json_file.read().replace('\ufeff', '')
@@ -35,7 +37,7 @@ class DirectAccessUserPlugin(BasePlugin):
         stats['TotalBytesIn'] = random.randint(1,101)
         stats['TotalBytesOut'] = random.randint(1,101)
         stats['TotalBytesInOut'] = random.randint(1,101)
-        '''
+        
         self.results_builder.absolute(key='total_connections', value=stats['TotalConnections'], entity_id=pgi_id)
         self.results_builder.absolute(key='total_DA_connections', value=stats['TotalDAConnections'], entity_id=pgi_id)
         self.results_builder.absolute(key='total_vpn_connections', value=stats['TotalVpnConnections'], entity_id=pgi_id)
